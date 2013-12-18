@@ -1,0 +1,58 @@
+body
+{
+  font-size: 50px;
+  margin: 0px;
+}
+table
+{
+  font-size: 50px;
+}
+input
+{
+  font-size:50px;
+  display:inline;
+}
+#content
+{
+  display: none;
+}
+.deliverytitle
+{
+  color: yellow;
+  background-color: gray;
+  text-align: center;
+}
+.delivery
+{
+  color: blue;
+  border-top: solid lightgray 1px;
+  margin: 0px;
+  padding-top: 10px;
+  padding-right: 20px;
+  height: 25px;
+  overflow: hidden;
+  text-align: ;
+}
+.checkNumber
+{
+  min-width: 4em;
+  text-align: right;
+  padding-right: 10px;
+}
+.address
+{
+  width: 1000%;
+  padding-left: 10px;
+}
+.time
+{
+  padding-left: 10px;
+}
+.header
+{
+  padding: 10px;
+}
+.expanded
+{
+  display: none;
+}

@@ -1,0 +1,20 @@
+receiveMessage = (msg) -> #msg should be a JSON object
+  messages[msg.name](msg.args...)
+
+messages =
+  dispatch: (storeID, driverID, delivery) ->
+  undispatch: (storeID, driverID, delivery) ->
+  return: (storeID, driverID) ->
+
+  assignDriverID: (store, driverID, password) ->
+    #so that you have to sign up through the store
+  unassignDriverID: (store, driverID) ->
+    #for when an employee is terminated or changes IDs, so that a new employee can get the account for that number
+  changeDriverID: (store, oldDriverID, newDriverID) ->
+
+API
+  addDelivery = (check_number, address) ->
+    d = new Delivery
+
+Deliveries = []
+class Delivery
