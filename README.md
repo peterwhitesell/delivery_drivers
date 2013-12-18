@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
   "messageType":"assignDelivery",
-  "storeID":"JimmyJohns416",
+  "storeID":"MyStoreID",
   "employeeID":"4",
   "delivery":
   {
@@ -43,7 +43,7 @@ Content-Type: application/json
 
 {
   "messageType":"unassignDelivery",
-  "storeID":"JimmyJohns416",
+  "storeID":"MyStoreID",
   "employeeID":"4",
   "delivery":
   {
@@ -68,7 +68,7 @@ Content-Type: application/json
 
 {
   "messageType":"editDelivery",
-  "storeID":"JimmyJohns416",
+  "storeID":"MyStoreID",
   "employeeID":"4",
   "delivery":
   {
