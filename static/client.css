@@ -1,7 +1,7 @@
 body
 {
   font-size: 50px;
-  margin: 0px;
+  margin: 0;
 }
 table
 {
@@ -26,12 +26,12 @@ input
 {
   color: blue;
   border-top: solid lightgray 1px;
-  margin: 0px;
+  margin: 0;
   padding-top: 10px;
   padding-right: 20px;
   height: 25px;
   overflow: hidden;
-  text-align: ;
+  /*text-align: ;*/
 }
 .checkNumber
 {

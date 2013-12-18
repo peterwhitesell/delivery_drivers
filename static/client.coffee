@@ -3,21 +3,23 @@ $(document).ready ->
     now.login $("#storeID").val(), $("#employeeID").val()
     $("#login").remove()
     $("#content").show()
-  
+
   $("#storeID").keypress (e) ->
     if e.which and e.which == 13
       $("#employeeID").focus()
-      
+
   $("#employeeID").keypress (e) ->
     if e.which and e.which == 13
       $("#login-button").click()
       return false
-  
+
   $("#storeID").focus()
-  
-  $("tr").live "click", ->
+
+  $("#deliverytable").on "click", "tr", ->
     $(@).find(".expanded").toggle()
-  
+  $("#deliverytable").on "click", "a", (e) ->
+    e.stopPropagation()
+
   updateTimes()
 
 sortDeliveries = ->
@@ -27,7 +29,7 @@ sortDeliveries = ->
     num2 = parseInt $(d2).children().filter(".checkNumber").html()
     return -1 if num1 < num2
     return 1 if num1 > num2
-    return 0 
+    return 0
   ds.sort sort_by_checkNumber
   for d in ds
     d.parentNode.appendChild d
@@ -43,19 +45,19 @@ updateTimes = ->
   setTimeout ->
     updateTimes()
   , 1000
-  
+
 updateTime = (deliveryElement) ->
   time_placed = $(deliveryElement).attr("timeplaced")
   current_time = new Date().getTime()
   minutes_since_placed = Math.round (current_time - time_placed)/60000
   $(deliveryElement).children().filter(".time").html(minutes_since_placed)
-  
+
 updateTableStripes = ->
   bgs = ["lightgray", "white"]
   deliveries = $("#deliveries").children()
   for i in [0...deliveries.length]
     $(deliveries[i]).css "background-color", bgs[i%2]
-  
+
 updateDispatchTime = (dispatched) ->
   if dispatched
     $("#notdispatched").hide()
@@ -66,7 +68,7 @@ updateDispatchTime = (dispatched) ->
     $("#notdispatched").show()
     $("#dispatched").hide()
   $("#dispatchedtime").attr "time", dispatched
-  
+
 assignDelivery = (delivery, dispatched) ->
   d = $("<tr id='d#{delivery.checkNumber}' class='delivery' timeplaced='#{delivery.timePlaced}'></tr>")
   $("<td class='checkNumber'>#{delivery.checkNumber}</td>").appendTo d
@@ -84,7 +86,7 @@ assignDelivery = (delivery, dispatched) ->
   sortDeliveries()
   updateTableStripes()
   updateDispatchTime dispatched
-  
+
 
 unassignDelivery = (delivery, dispatched) ->
   $("#d#{delivery.checkNumber}").remove()
@@ -99,12 +101,12 @@ now.clientAssignDelivery = (delivery, dispatched) ->
   console.log "assign delivery"
   console.log delivery
   assignDelivery delivery, dispatched
-  
+
 now.clientUnassignDelivery = (delivery, dispatched) ->
   console.log "unassign delivery"
   console.log delivery
   unassignDelivery delivery, dispatched
-  
+
 now.clientEditDelivery = (delivery) ->
   console.log "edit delivery"
   console.log delivery

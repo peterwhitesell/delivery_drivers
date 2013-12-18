@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>delivery app</title>
-<link rel="stylesheet" type="text/css" href="client.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script src="/nowjs/now.js"></script>
-<script type="text/javascript" src="client.js"></script>
+	<title>delivery app</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
+	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+	<script src="/nowjs/now.js"></script>
+	<script type="text/javascript" src="assets/js/client.js"></script>
 </head>
 
 <body>
-  <div id="content">
-    <div class="header">
-      <div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
-      <div id="notdispatched">At store</div>
-    </div>
-    <table id="deliverytable" class="deliverytable">
-      <thead>
-        <tr class="deliverytitle">
-          <th class="checkNumber">check#</th>
-          <th class="address">address</th>
-          <th class="time">time</th>
-        </tr>
-      </thead>
-      <tbody id="deliveries"></tbody>
-    </table>
-  </div>
-  <div id="login">
-    Store ID<input type="text" id="storeID">
-    </br>
-    Employee ID<input type="text" id="employeeID">
-    </br>
-    <input type="button" value="login" id="login-button">
-  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div id="content">
+				<div class="header">
+					<div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
+					<div id="notdispatched">At store</div>
+				</div>
+				<table id="deliverytable" class="deliverytable table table-striped">
+					<thead>
+					<tr class="deliverytitle">
+						<th class="checkNumber">check#</th>
+						<th class="address">address</th>
+						<th class="time">time</th>
+					</tr>
+					</thead>
+					<tbody id="deliveries"></tbody>
+				</table>
+			</div>
+			<div id="login">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-2 col-xs-5 control-label" for="storeID">Store ID</label>
+						<div class="col-sm-10 col-xs-7">
+							<input class="form-control" type="text" id="storeID" name="storeid">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-xs-5 control-label" for="employeeID">Employee ID</label>
+						<div class="col-sm-10 col-xs-7">
+							<input class="form-control" type="text" id="employeeID" name="employeeid">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10 col-xs-7 col-sm-push-2 col-xs-push-5">
+							<input class="btn btn-lg btn-default" type="button" value="login" id="login-button">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

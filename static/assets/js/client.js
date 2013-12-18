@@ -20,8 +20,11 @@
       }
     });
     $("#storeID").focus();
-    $("#deliverytable").on("click", function() {
-      return $(this).find("tr .expanded").toggle();
+    $("#deliverytable").on("click", "tr", function() {
+      return $(this).find(".expanded").toggle();
+    });
+    $("#deliverytable").on("click", "a", function(e) {
+      return e.stopPropagation();
     });
     return updateTimes();
   });
