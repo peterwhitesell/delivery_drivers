@@ -1,14 +1,14 @@
 delivery_drivers
 ================
 
-A service to extend the delivery driver dispatch functionality of point of sales systems.
-app.js is a Node.js app that does two things. It listens for deliver assignments and unassignments from POS systems via HTTP POST requests, and serves a browser app for delivery drivers, designed to for mobile devices. 
+A service to extend the delivery driver dispatch functionality of point of sales (POS) systems.
+app.js is a Node.js app that does two things. It listens for deliver assignments and unassignments and edits from POS systems via HTTP POST requests, and serves a browser app for delivery drivers, designed to for mobile devices. 
 
 The browser app shows drivers what deliveries are assigned to them, with one touch features for calling customers, mapping their addresses and calling the store. 
 
 Having all of this information at the delivery drivers' fingertips saves time and effort by organizing all the information they need to make several deliveries in one trip, while avoiding the repetitive and redundant task of entering addresses and phone numbers into their phones that have already been entered when the orders were taken. 
 
-Because of the ubiquity of the HTTP protocol, integration with existing point of sales systems is straightforward and easy. When a delivery is assigned or unassigned, the system need only make the appropriate HTTP POST request, and the delivery driver app server takes care of the rest. 
+Because of the ubiquity of the HTTP protocol, integration with existing POS systems is straightforward and easy. When a delivery is assigned or unassigned, the system need only make the appropriate HTTP POST request, and the delivery driver app server takes care of the rest. 
 
 HTTP POST requests from POS systems should look like this:
 
