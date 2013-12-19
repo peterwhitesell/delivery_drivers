@@ -1,8 +1,13 @@
+socket = io.connect 'http://192.168.0.2'
+
 $(document).ready ->
   $("#login-button").click ->
-    now.login $("#storeID").val(), $("#employeeID").val()
+    socket.emit 'login',
+      "storeID": $("#storeID").val(),
+      "employeeID": $("#employeeID").val()
     $("#login").remove()
     $("#content").show()
+
 
   $("#storeID").keypress (e) ->
     if e.which and e.which == 13
@@ -73,8 +78,8 @@ assignDelivery = (delivery, dispatched) ->
   d = $("<tr id='d#{delivery.checkNumber}' class='delivery' timeplaced='#{delivery.timePlaced}'></tr>")
   $("<td class='checkNumber'>#{delivery.checkNumber}</td>").appendTo d
   urlAddress = delivery.address1.split(" ").join("+")
-  address = "<td class='address'><a href='http://maps.google.com/?q=#{urlAddress}'>#{delivery.address1}</a><div id='de#{delivery.checkNumber}' class='expanded'>"
-  for info in ["#{delivery.address2}", "#{delivery.customerName}", "<a href='tel:#{delivery.phoneNumber}'>#{delivery.phoneNumber}</a>", "#{delivery.comments}", "#{delivery.deliveryInstructions}"]
+  address = "<td class='address'><a class='btn btn-success' href='http://maps.google.com/?q=#{urlAddress}'>#{delivery.address1}</a><div id='de#{delivery.checkNumber}' class='expanded'>"
+  for info in ["#{delivery.address2}", "#{delivery.customerName}", "<a class='btn btn-info' href='tel:#{delivery.phoneNumber}'>#{delivery.phoneNumber}</a>", "#{delivery.comments}", "#{delivery.deliveryInstructions}"]
     unless info == ""
       address = address + info + "</br>"
   address = address + "#{delivery.price} #{delivery.paymentType}" + "</div></td>"
@@ -97,17 +102,17 @@ editDelivery = (delivery) ->
   unassignDelivery delivery
   assignDelivery delivery
 
-now.clientAssignDelivery = (delivery, dispatched) ->
+socket.on 'clientAssignDelivery', (data) ->
   console.log "assign delivery"
-  console.log delivery
-  assignDelivery delivery, dispatched
+  console.log data.delivery
+  assignDelivery data.delivery, data.dispatched
 
-now.clientUnassignDelivery = (delivery, dispatched) ->
+socket.on 'clientUnassignDelivery', (data) ->
   console.log "unassign delivery"
-  console.log delivery
-  unassignDelivery delivery, dispatched
+  console.log data.delivery
+  unassignDelivery data.delivery, data.dispatched
 
-now.clientEditDelivery = (delivery) ->
+socket.on 'clientEditDelivery', (data) ->
   console.log "edit delivery"
-  console.log delivery
-  editDelivery delivery
+  console.log data.delivery
+  editDelivery data.delivery

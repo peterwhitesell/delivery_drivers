@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 	<title>delivery app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
 	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
-	<script src="/nowjs/now.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="assets/js/client.js"></script>
 </head>
 
@@ -12,22 +13,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<div id="content">
-				<div class="header">
-					<div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
-					<div id="notdispatched">At store</div>
-				</div>
-				<table id="deliverytable" class="deliverytable table table-striped">
-					<thead>
-					<tr class="deliverytitle">
-						<th class="checkNumber">check#</th>
-						<th class="address">address</th>
-						<th class="time">time</th>
-					</tr>
-					</thead>
-					<tbody id="deliveries"></tbody>
-				</table>
-			</div>
 			<div id="login">
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
@@ -48,6 +33,22 @@
 						</div>
 					</div>
 				</form>
+			</div>
+			<div id="content">
+				<div class="header">
+					<div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
+					<div id="notdispatched">At store</div>
+				</div>
+				<table id="deliverytable" class="deliverytable table table-striped">
+					<thead>
+					<tr class="deliverytitle">
+						<th class="checkNumber">check#</th>
+						<th class="address">address</th>
+						<th class="time">time</th>
+					</tr>
+					</thead>
+					<tbody id="deliveries"></tbody>
+				</table>
 			</div>
 		</div>
 	</div>

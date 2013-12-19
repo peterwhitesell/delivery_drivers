@@ -1,0 +1,8 @@
+{
+	"name": "delivery_drivers",
+	"version": "0.0.1",
+	"dependencies": {
+		"socket.io": "~0.9.10",
+		"express": "3.2.0"
+	}
+}
