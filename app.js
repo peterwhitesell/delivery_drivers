@@ -19,13 +19,14 @@
 
   io = socketio.listen(server);
 
+  io.set('log level', 1);
+
   server.listen(3001);
 
   app.post('/from-POS', function(req, res) {
     var message;
     message = req.body;
     handlePOSMessage(message);
-    console.log(message.method);
     return res.end('success\n');
   });
 

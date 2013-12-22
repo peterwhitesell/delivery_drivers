@@ -103,16 +103,12 @@ editDelivery = (delivery) ->
   assignDelivery delivery
 
 socket.on 'clientAssignDelivery', (data) ->
-  console.log "assign delivery"
-  console.log data.delivery
   assignDelivery data.delivery, data.dispatched
 
 socket.on 'clientUnassignDelivery', (data) ->
-  console.log "unassign delivery"
-  console.log data.delivery
   unassignDelivery data.delivery, data.dispatched
 
 socket.on 'clientEditDelivery', (data) ->
-  console.log "edit delivery"
-  console.log data.delivery
   editDelivery data.delivery
+
+app = angular.module 'DeliveryApp', []
