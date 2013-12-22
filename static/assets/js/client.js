@@ -2,7 +2,7 @@
 (function() {
   var app, assignDelivery, editDelivery, socket, sortDeliveries, unassignDelivery, updateDispatchTime, updateTableStripes, updateTime, updateTimes;
 
-  socket = io.connect('http://192.168.0.2');
+  socket = io.connect('http://localhost');
 
   $(document).ready(function() {
     $("#login-button").click(function() {

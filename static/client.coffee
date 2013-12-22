@@ -1,4 +1,4 @@
-socket = io.connect 'http://192.168.0.2'
+socket = io.connect 'http://localhost'
 
 $(document).ready ->
   $("#login-button").click ->
