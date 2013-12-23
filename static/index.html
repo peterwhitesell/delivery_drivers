@@ -35,7 +35,7 @@
 					</div>
 				</form>
 			</div>
-			<div id="content">
+			<div id="content" ng-controller="DeliveryTable">
 				<div class="header">
 					<div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
 					<div id="notdispatched">At store</div>
@@ -48,7 +48,18 @@
 						<th class="time col-md-3">time</th>
 					</tr>
 					</thead>
-					<tbody id="deliveries"></tbody>
+					<tbody id="deliveries">
+						<tr ng-repeat="delivery in deliveries | orderBy:'checkNumber'">
+							<td>{{delivery.checkNumber}}</td>
+							<td>
+								<a class="btn btn-success" href="{{getURLAddress(delivery.address1)}}">
+									{{delivery.address1}}
+								</a>
+								<div class="expanded"></div>
+							</td>
+							<td>{{getTime(delivery.timePlaced)}}</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		</div>
