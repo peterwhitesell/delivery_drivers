@@ -157,6 +157,40 @@
 
   deliveryApp = angular.module('DeliveryApp', []);
 
+  deliveryApp.directive('expander', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element) {
+        return element.bind('click', function() {
+          return element.find('[expand]').slideToggle();
+        });
+      }
+    };
+  });
+
+  deliveryApp.directive('expand', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element) {
+        return element.slideUp();
+      }
+    };
+  });
+
+  deliveryApp.directive('delivery', function() {
+    return {
+      restrict: 'A',
+      templateUrl: 'delivery.html'
+    };
+  });
+
+  deliveryApp.directive('extraInfo', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'extraInfo.html'
+    };
+  });
+
   deliveryApp.controller('DeliveryTable', function($scope, $timeout) {
     $scope.deliveries = [
       {
@@ -165,7 +199,7 @@
         phoneNumber: "5126988915",
         customerName: "James",
         address1: "607 e 38th",
-        address2: "duplex right side",
+        address2: "",
         subDivision: "",
         city: "",
         deliveryInstructions: "",

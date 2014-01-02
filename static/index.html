@@ -43,22 +43,13 @@
 				<table id="deliverytable" class="deliverytable table table-striped">
 					<thead>
 					<tr class="deliverytitle">
-						<th class="checkNumber col-md-2">check#</th>
-						<th class="address col-md-7">address</th>
-						<th class="time col-md-3">time</th>
+						<th class="checkNumber col-xs-2">check#</th>
+						<th class="address col-xs-7">address</th>
+						<th class="time col-xs-3">time</th>
 					</tr>
 					</thead>
 					<tbody id="deliveries">
-						<tr ng-repeat="delivery in deliveries | orderBy:'checkNumber'">
-							<td>{{delivery.checkNumber}}</td>
-							<td>
-								<a class="btn btn-success" href="{{getURLAddress(delivery.address1)}}">
-									{{delivery.address1}}
-								</a>
-								<div class="expanded"></div>
-							</td>
-							<td>{{getTime(delivery.timePlaced)}}</td>
-						</tr>
+						<tr ng-repeat="delivery in deliveries | orderBy:'checkNumber'" delivery expander></tr>
 					</tbody>
 				</table>
 			</div>

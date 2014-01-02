@@ -92,7 +92,6 @@ assignDelivery = (delivery, dispatched) ->
   updateTableStripes()
   updateDispatchTime dispatched
 
-
 unassignDelivery = (delivery, dispatched) ->
   $("#d#{delivery.checkNumber}").remove()
   updateTableStripes()
@@ -113,6 +112,24 @@ socket.on 'clientEditDelivery', (data) ->
 
 deliveryApp = angular.module 'DeliveryApp', []
 
+deliveryApp.directive 'expander', ->
+  restrict: 'A',
+  link: (scope, element) ->
+    element.bind 'click', -> element.find('[expand]').slideToggle()
+
+deliveryApp.directive 'expand', ->
+  restrict: 'A',
+  link: (scope, element) ->
+    element.slideUp()
+
+deliveryApp.directive 'delivery', ->
+  restrict: 'A',
+  templateUrl: 'delivery.html'
+
+deliveryApp.directive 'extraInfo', ->
+  restrict: 'E',
+  templateUrl: 'extraInfo.html'
+
 deliveryApp.controller 'DeliveryTable', ($scope, $timeout) ->
   $scope.deliveries = [
     timePlaced: 1387758415310,
@@ -120,7 +137,7 @@ deliveryApp.controller 'DeliveryTable', ($scope, $timeout) ->
     phoneNumber: "5126988915",
     customerName: "James",
     address1: "607 e 38th",
-    address2: "duplex right side",
+    address2: "",
     subDivision: "",
     city: "",
     deliveryInstructions: "",
@@ -167,11 +184,14 @@ deliveryApp.controller 'DeliveryTable', ($scope, $timeout) ->
     price: "$6.75",
     paymentType: "cash"
   ]
+
   $scope.getURLAddress = (address) ->
     return "http://maps.google.com/?q=" + encodeURIComponent address
+
   updateTime = () ->
     $scope.currentTime = new Date().getTime()
     $timeout updateTime, 1000
   updateTime()
+
   $scope.getTime = (timePlaced) ->
     return Math.round ($scope.currentTime - timePlaced) / 60000

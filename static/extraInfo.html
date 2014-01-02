@@ -1,0 +1,13 @@
+{{delivery.address2}}
+<br ng-if="delivery.address2 != ''">
+{{delivery.customerName}}
+<br>
+<a class="btn btn-info" href="tel:{{delivery.phoneNumber}}">
+	{{delivery.phoneNumber}}
+</a>
+<br>
+{{delivery.comments}}
+<br ng-if="delivery.comments != ''">
+{{delivery.deliveryInstructions}}
+<br ng-if="delivery.deliveryInstructions != ''">
+{{delivery.price}} {{delivery.paymentType}}
