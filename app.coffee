@@ -13,7 +13,7 @@ server = http.createServer(app)
 io = socketio.listen server
 io.set('log level', 1);
 
-server.listen 3002
+server.listen 3003
 
 #receives http post requests made to .../from-POS. 
 app.post '/from-POS', (req, res) ->

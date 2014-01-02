@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.6/angular-route.min.js"></script>
 	<script type="text/javascript" src="assets/js/client.js"></script>
 </head>
 
@@ -49,7 +50,7 @@
 					</tr>
 					</thead>
 					<tbody id="deliveries">
-						<tr ng-repeat="delivery in deliveries | orderBy:'checkNumber'" delivery expander></tr>
+						<tr ng-repeat="delivery in getDeliveries() | orderBy:'checkNumber'" delivery expander></tr>
 					</tbody>
 				</table>
 			</div>

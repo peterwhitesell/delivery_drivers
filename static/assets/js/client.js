@@ -192,8 +192,8 @@
   });
 
   deliveryApp.controller('DeliveryTable', function($scope, $timeout) {
-    $scope.deliveries = [
-      {
+    $scope.deliveries = {
+      551: {
         timePlaced: 1387758415310,
         checkNumber: 551,
         phoneNumber: "5126988915",
@@ -206,7 +206,8 @@
         comments: "knock loudly",
         price: "$10.80",
         paymentType: "cash"
-      }, {
+      },
+      548: {
         timePlaced: 1387758115310,
         checkNumber: 548,
         phoneNumber: "5123247007",
@@ -219,7 +220,8 @@
         comments: "",
         price: "$5.25",
         paymentType: "card"
-      }, {
+      },
+      543: {
         timePlaced: 1387758015310,
         checkNumber: 543,
         phoneNumber: "5125442693",
@@ -232,7 +234,8 @@
         comments: "",
         price: "$8.00",
         paymentType: "card"
-      }, {
+      },
+      550: {
         timePlaced: 1387758315310,
         checkNumber: 550,
         phoneNumber: "8179332536",
@@ -246,7 +249,17 @@
         price: "$6.75",
         paymentType: "cash"
       }
-    ];
+    };
+    $scope.getDeliveries = function() {
+      var deliveries, delivery, id, _ref;
+      deliveries = [];
+      _ref = $scope.deliveries;
+      for (id in _ref) {
+        delivery = _ref[id];
+        deliveries.push(delivery);
+      }
+      return deliveries;
+    };
     $scope.getURLAddress = function(address) {
       return "http://maps.google.com/?q=" + encodeURIComponent(address);
     };
