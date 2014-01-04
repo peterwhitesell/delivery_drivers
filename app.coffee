@@ -134,7 +134,10 @@ receive =
 #when a client logs in as an employee, send delivery assignments to the client for all deliveries that are currently stored locally for that employee. store the client's socket
 io.sockets.on 'connection', (socket) ->
   socket.on 'login', (args) ->
-    socket.join args.storeID + args.employeeID
+
+    socket.leave socket.room
+    socket.room = args.storeID + args.employeeID
+    socket.join socket.room
 
     console.log "#{args.storeID}'s employee, #{args.employeeID} just logged in"
     data.ensureEmployeeExists args.storeID, args.employeeID

@@ -179,7 +179,9 @@
   io.sockets.on('connection', function(socket) {
     return socket.on('login', function(args) {
       var d, employee, _i, _len, _ref, _results;
-      socket.join(args.storeID + args.employeeID);
+      socket.leave(socket.room);
+      socket.room = args.storeID + args.employeeID;
+      socket.join(socket.room);
       console.log("" + args.storeID + "'s employee, " + args.employeeID + " just logged in");
       data.ensureEmployeeExists(args.storeID, args.employeeID);
       employee = data.stores[args.storeID].employees[args.employeeID];
