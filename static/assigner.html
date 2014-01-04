@@ -1,9 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="AssignerApp">
 <head>
-	<title>Delivery Assigner</title>
+	<title>delivery assigner</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
+	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.6/angular-route.min.js"></script>
+	<script type="text/javascript" src="assets/js/assigner.js"></script>
 </head>
-<body>
 
+<body>
+<div class="container" ng-controller="AssignerForm">
+	<div class="row">
+		<div class="col-sm-12">
+			<form role="form" ng-submit="submit()">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="method">Action</label>
+							<select id="method" class="form-control" ng-model="form.method" ng-options="m.name for m in form_methods">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="storeID">Store ID</label>
+						    <input type="text" class="form-control" id="storeID" placeholder="Store ID" ng-model="form.storeID">
+						</div>
+						<div class="form-group">
+							<label for="employeeID">Employee ID</label>
+						    <input type="number" class="form-control" id="employeeID" placeholder="Employee ID" ng-model="form.employeeID">
+						</div>
+
+						<div class="form-group">
+							<label for="checkNumber">Check Number</label>
+						    <input type="number" class="form-control" id="checkNumber" placeholder="chk#" ng-model="form.checkNumber">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">{{form.method.name}}</button>
+						</div>
+					</div>
+					<div class="col-sm-6" ng-if="form.method.method != 'unassignDelivery'">
+						<div class="form-group">
+							<label for="minsOld">Minutes Old</label>
+						    <input type="number" min="0" class="form-control" id="minsOld" placeholder="" ng-model="form.minsOld">
+						</div>
+						<div class="form-group">
+							<label for="phoneNumber">Phone Number</label>
+						    <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="form.phoneNumber">
+						</div>
+						<div class="form-group">
+							<label for="customerName">Customer Name</label>
+						    <input type="text" class="form-control" id="customerName" placeholder="Customer Name" ng-model="form.customerName">
+						</div>
+						<div class="form-group">
+							<label for="address1">Address1</label>
+						    <input type="text" class="form-control" id="address1" placeholder="Address1" ng-model="form.address1">
+						</div>
+						<div class="form-group">
+							<label for="address2">Address2</label>
+						    <input type="text" class="form-control" id="address2" placeholder="Address2" ng-model="form.address2">
+						</div>
+						<div class="form-group">
+							<label for="subDivision">Sub Division</label>
+						    <input type="text" class="form-control" id="subDivision" placeholder="Sub Division" ng-model="form.subDivision">
+						</div>
+						<div class="form-group">
+							<label for="city">City</label>
+						    <input type="text" class="form-control" id="city" placeholder="City" ng-model="form.city">
+						</div>
+						<div class="form-group">
+							<label for="">Delivery Instructions</label>
+						    <input type="text" class="form-control" id="deliveryInstructions" placeholder="Delivery Instructions" ng-model="form.deliveryInstructions">
+						</div>
+						<div class="form-group">
+							<label for="comments">Comments</label>
+						    <input type="text" class="form-control" id="comments" placeholder="Comments" ng-model="form.comments">
+						</div>
+						<div class="form-group">
+							<label for="price">Price</label>
+						    <input type="text" class="form-control" id="price" placeholder="Price" ng-model="form.price">
+						</div>
+						<div class="form-group">
+							<label for="paymentType">Payment Type</label>
+							<select id="paymentType" class="form-control" ng-model="form.paymentType" ng-options="t for t in paymentTypes">
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
+
+<!-- curl -X POST -H "content-type: application/json" -d '{"messageType":"assignDelivery", "storeID":"MyStoreID", "employeeID":"4", "delivery":{"timePlaced":"1369252307781", "checkNumber":"550", "phoneNumber":"8179332536", "customerName":"Josh", "address1":"3401 Red River", "address2":"Apt 203", "subDivision":"", "city":"", "deliveryInstructions":"", "comments":"Do a dance", "price":"$6.75", "paymentType":"cash"}}' http://ec2-54-209-154-196.compute-1.amazonaws.com:8080/from-POS; -->
+
+<!--
+	method
+		SELECT
+	storeID
+		INPUT
+	employeeID
+		INPUT
+
+	checkNumber
+		INPUT
+
+	timePlaced
+		INPUT (minutes ago)
+	phoneNumber
+		INPUT INPUT INPUT
+	customerName
+		INPUT
+	address1
+		INPUT
+	address2
+		INPUT
+	subDivision
+		INPUT
+	city
+		INPUT
+	deliveryInstructions
+		INPUT
+	comments
+		INPUT
+	price
+		INPUT
+	paymentType
+		SELECT (cash, card)
+-->
