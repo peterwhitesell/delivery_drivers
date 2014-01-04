@@ -21,7 +21,7 @@
 
   io.set('log level', 1);
 
-  server.listen(3003);
+  server.listen(3000);
 
   app.post('/from-POS', function(req, res) {
     var message;

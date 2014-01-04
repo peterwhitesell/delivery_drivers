@@ -12,34 +12,32 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" ng-controller="DeliveryTable">
 	<div class="row">
 		<div class="col-sm-12">
-			<div id="login">
-				<form class="form-horizontal" role="form">
-					<div class="form-group">
-						<label class="col-sm-2 col-xs-5 control-label" for="storeID">Store ID</label>
-						<div class="col-sm-10 col-xs-7">
-							<input class="form-control" type="text" id="storeID" name="storeid">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 col-xs-5 control-label" for="employeeID">Employee ID</label>
-						<div class="col-sm-10 col-xs-7">
-							<input class="form-control" type="text" id="employeeID" name="employeeid">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-10 col-xs-7 col-sm-push-2 col-xs-push-5">
-							<input class="btn btn-lg btn-default" type="button" value="login" id="login-button">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div id="content" ng-controller="DeliveryTable">
+			<div id="content">
 				<div class="header">
-					<div id="dispatched">Dispatched <span id="dispatchedtime"></span> minutes ago</div>
-					<div id="notdispatched">At store</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<span ng-if="!noDeliveries()">Dispatched {{getTime(dispatched)}} minutes ago</span>
+							<span ng-if="noDeliveries()">At store</span>
+						</div>
+					</div>
+					<div class="row">
+						<form role="form" id="login" ng-submit="login()">
+							<div class="form-group col-xs-6">
+							    <label class="sr-only" for="store_id">Store ID</label>
+							    <input type="text" class="form-control" id="store_id" placeholder="Store ID" ng-model="storeID">
+							</div>
+							<div class="form-group col-xs-3">
+							    <label class="sr-only" for="employee_id">Employee ID</label>
+							    <input type="text" class="form-control" id="employee_id" placeholder="Employee ID" ng-model="employeeID">
+							</div>
+							<div class="form-group col-xs-3">
+								<button type="submit" class="btn btn-default">Login</button>
+							</div>
+						</form>
+					</div>
 				</div>
 				<table id="deliverytable" class="deliverytable table table-striped">
 					<thead>
