@@ -54,16 +54,15 @@ Content-Type: application/json
 ``"messageType"`` can be ``"assignDelivery"``, ``"unassignDelivery"`` or ``"editDelivery"``.
 
 To connect as a client:
-Point your browser to [http://localhost:3000]([http://localhost:3000)
+Point your browser to [http://localhost:3000]([http://localhost:3000).
 
 To use the web form to assign/unassign/edit deliveries:
-Point your browser to [http://localhost:3000/assigner.html](http://localhost:3000/assigner.html)
+Point your browser to [http://localhost:3000/assigner.html](http://localhost:3000/assigner.html).
 
 Demo
 ----
-I've hosted a demo on an AWS EC2 micro instance [here](ec2-54-209-154-196.compute-1.amazonaws.com:8080)
-You can use the assigner [here](ec2-54-209-154-196.compute-1.amazonaws.com:8080/assigner.html)
+I've hosted a demo on an AWS EC2 micro instance [here](ec2-54-209-154-196.compute-1.amazonaws.com:8080). You can use the assigner [here](ec2-54-209-154-196.compute-1.amazonaws.com:8080/assigner.html).
 
 TODO
 ----
-* Add authentication schemes for employees signing in and for requests from POS systems
+* Add authentication schemes for employees signing in and for requests from POS systems.
