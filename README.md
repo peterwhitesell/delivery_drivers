@@ -55,7 +55,7 @@ Content-Type: application/json
 ``"messageType"`` can be ``"assignDelivery"``, ``"unassignDelivery"`` or ``"editDelivery"``.
 
 To connect as a client:
-Point your browser to [http://localhost:3000/]([http://localhost:3000).
+Point your browser to [http://localhost:3000](http://localhost:3000/).
 
 To use the web form to assign/unassign/edit deliveries:
 Point your browser to [http://localhost:3000/assigner.html](http://localhost:3000/assigner.html).
