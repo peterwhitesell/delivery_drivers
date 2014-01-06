@@ -1,7 +1,6 @@
 delivery_drivers
 ================
-![Example Image](/screenshot.jpg)
-delivery_drivers includes a simple mobile browser app for delivery drivers, showing them what orders are assigned to them and providing one-touch options for calling customers or mapping their addresses. 
+delivery_drivers includes a simple mobile browser app for delivery drivers, showing them what orders are assigned to them and providing one-touch options for calling customers or mapping their addresses. ![Example Image](/screenshot.jpg)
 
 Having all of this information at the delivery drivers' fingertips saves time and effort by organizing all the information they need to make several deliveries in one trip, while avoiding the repetitive and redundant task of entering addresses and phone numbers into their phones that have already been entered when the orders were taken. 
 
