@@ -10,7 +10,7 @@ delivery_drivers' node.js app saves what deliveries are assigned to which employ
 
 On the user end, delivery_drivers serves a clean, simple, mobile-friendly interface built with angular.js and Twitter Bootstrap for the browser. The user sees an easy way to log in, how long he/she has been away from the store and a list of deliveries that are assigned to him/her. Deliheveries in the list show the most important information up front (the check number, address and delivery age) and expand with a touch to show details such as delivery instructions, phone number, price, etc. 
 
-I've also included a simple web form for assigning/unassigning/editing deliveries for demonstration purposes. It uses angular.js's $http service to pretend to be a POS system, sending HTTP POST requests to the server. If you prefer, you can easily test with UNIX <pre>curl</pre> or any other HTTP wrapper. 
+I've also included a simple web form for assigning/unassigning/editing deliveries for demonstration purposes. It uses angular.js's $http service to pretend to be a POS system, sending HTTP POST requests to the server. If you prefer, you can easily test with UNIX ``curl`` or any other HTTP wrapper. 
 
 Usage and Integration
 ---------------------
