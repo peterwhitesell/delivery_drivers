@@ -4,7 +4,7 @@ delivery_drivers includes a simple mobile browser app for delivery drivers, show
 
 Having all of this information at the delivery drivers' fingertips saves time and effort by organizing all the information they need to make several deliveries in one trip, while avoiding the repetitive and redundant task of entering addresses and phone numbers into their phones that have already been entered when the orders were taken. 
 
-delivery_drivers is designed to be easily integrated with existing point of sales systems. The node.js server listens for HTTP POST requests from point of sales systems, which can be used to assign or unassign deliveries or to edit deliveries that are already assigned. An instance of delivery_drivers can handle multiple stores with multiple employees.
+delivery_drivers is designed to be easily integrated with existing point of sales systems. The [node.js](http://nodejs.org/) server listens for HTTP POST requests from point of sales systems, which can be used to assign or unassign deliveries or to edit deliveries that are already assigned. An instance of delivery_drivers can handle multiple stores with multiple employees.
 
 delivery_drivers' node.js app saves what deliveries are assigned to which employees in memory and uses WebSockets via socket.io to push changes to connected clients. When a client connects, he/she receives all deliveries currently assigned to him/her. 
 
@@ -51,7 +51,7 @@ Content-Type: application/json
   }
 }
 </pre>
-<pre>"messageType"</pre> can be <pre>"assignDelivery"</pre>, <pre>"unassignDelivery"</pre> or <pre>"editDelivery"</pre>.
+``"messageType"`` can be ``"assignDelivery"``, ``"unassignDelivery"`` or ``"editDelivery"``.
 
 To connect as a client:
 Point your browser to http://localhost:3000
