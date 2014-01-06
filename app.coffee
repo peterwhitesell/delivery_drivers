@@ -6,7 +6,7 @@ socketio = require 'socket.io'
 app = express()
 app.configure ->
   app.use express.bodyParser()
-  app.use express.static(__dirname + '/static')
+  app.use express.static __dirname + '/static'
   
 server = http.createServer(app)
 
@@ -78,7 +78,7 @@ data =
   #called upon receiving a message from POS to ensure there is a record for the relevant store
   ensureStoreExists: (storeID) ->
     unless @stores[storeID]?
-      @stores[storeID] = new Store(storeID)
+      @stores[storeID] = new Store storeID
   #called upon receiving a message from POS to ensure there is a record for the relevant employee
   ensureEmployeeExists: (storeID, employeeID) ->
     @ensureStoreExists storeID
