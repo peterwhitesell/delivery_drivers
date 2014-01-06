@@ -18,6 +18,7 @@ To install:
 <pre>
 git clone https://github.com/peterwhitesell/delivery_drivers.git
 cd delivery_drivers
+npm install
 ./make
 </pre>
 
