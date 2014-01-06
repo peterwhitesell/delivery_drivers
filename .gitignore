@@ -2,3 +2,6 @@
 .idea/*
 node_modules
 node_modules/*
+app.js
+static/assets/js/client.js
+static/assets/js/assigner.js
