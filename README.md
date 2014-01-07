@@ -8,7 +8,7 @@ delivery_drivers is designed to be easily integrated with existing point of sale
 
 delivery_drivers' node.js app saves what deliveries are assigned to which employees in memory and uses WebSockets via [socket.io](http://socket.io/) to push changes to connected clients. When a client connects, he/she receives all deliveries currently assigned to him/her. 
 
-On the user end, delivery_drivers serves a clean, simple, mobile-friendly interface built with [angular.js](http://angularjs.org/) and [Twitter Bootstrap](http://getbootstrap.com/) for the browser. The user sees an easy way to log in, how long he/she has been away from the store and a list of deliveries that are assigned to him/her. Deliheveries in the list show the most important information up front (the check number, address and delivery age) and expand with a touch to show details such as delivery instructions, phone number, price, etc. 
+On the user end, delivery_drivers serves a clean, simple, mobile-friendly interface built with [angular.js](http://angularjs.org/) and [Twitter Bootstrap](http://getbootstrap.com/) for the browser. The user sees an easy way to log in, how long he/she has been away from the store and a list of deliveries that are assigned to him/her. Deliveries in the list show the most important information up front (the check number, address and delivery age) and expand with a touch to show details such as delivery instructions, phone number, price, etc. 
 
 I've also included a simple web form for assigning/unassigning/editing deliveries for demonstration purposes. It uses angular.js's $http service to pretend to be a POS system, sending HTTP POST requests to the server. If you prefer, you can easily test with UNIX ``curl`` or any other HTTP wrapper. 
 
